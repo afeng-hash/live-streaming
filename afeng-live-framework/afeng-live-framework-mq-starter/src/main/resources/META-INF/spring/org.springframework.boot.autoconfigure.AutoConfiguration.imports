@@ -1,0 +1,3 @@
+com.afeng.live.framework.mq.starter.config.RocketMQProducerProperties
+com.afeng.live.framework.mq.starter.producer.RocketMQProducerConfig
+com.afeng.live.framework.mq.starter.config.RocketMQConsumerPropeties

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/afeng-live-account-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-account-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-bank-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-bank-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-bank-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-common-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/afeng-live-framework-datasource-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/afeng-live-framework-mq-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/afeng-live-framework-redis-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/afeng-live-framework-web-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-gift-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-gift-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-id-generate-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-id-generate-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-core-server-interfaces/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-core-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-router-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-im-router-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-living-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-living-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-msg-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-msg-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-sms-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-sms-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-user-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-user-interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-user-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/afeng-live-user-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

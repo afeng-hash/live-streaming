@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="afeng-live-bank-api" />
+        <module name="afeng-live-im-router-provider" />
+        <module name="afeng-live-gift-provider" />
+        <module name="afeng-live-user-interface" />
+        <module name="afeng-live-framework-datasource-starter" />
+        <module name="afeng-live-sms-interface" />
+        <module name="afeng-live-sms-provider" />
+        <module name="afeng-live-account-interface" />
+        <module name="afeng-live-framework-web-starter" />
+        <module name="afeng-live-id-generate-interface" />
+        <module name="afeng-live-bank-interface" />
+        <module name="afeng-live-msg-interface" />
+        <module name="afeng-live-gateway" />
+        <module name="afeng-live-msg-provider" />
+        <module name="afeng-live-living-provider" />
+        <module name="afeng-live-framework-redis-starter" />
+        <module name="afeng-live-im-core-server-interfaces" />
+        <module name="afeng-live-account-provider" />
+        <module name="afeng-live-im-provider" />
+        <module name="afeng-live-common-interface" />
+        <module name="afeng-live-living-interface" />
+        <module name="afeng-live-im-interface" />
+        <module name="afeng-live-api" />
+        <module name="afeng-live-bank-provider" />
+        <module name="afeng-live-user-provider" />
+        <module name="afeng-live-im-core-server" />
+        <module name="afeng-live-im-router-interface" />
+        <module name="afeng-live-id-generate-provider" />
+        <module name="afeng-live-gift-interface" />
+        <module name="afeng-live-framework-mq-starter" />
+        <module name="afeng-live-im-consumer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="qiyu-live-account-interface" target="17" />
+      <module name="qiyu-live-account-provider" target="17" />
+      <module name="qiyu-live-api" target="17" />
+      <module name="qiyu-live-bank-api" target="17" />
+      <module name="qiyu-live-bank-interface" target="17" />
+      <module name="qiyu-live-bank-provider" target="17" />
+      <module name="qiyu-live-common-interface" target="17" />
+      <module name="qiyu-live-framework" target="17" />
+      <module name="qiyu-live-framework-datasource-starter" target="17" />
+      <module name="qiyu-live-framework-mq-starter" target="17" />
+      <module name="qiyu-live-framework-redis-starter" target="17" />
+      <module name="qiyu-live-framework-web-starter" target="17" />
+      <module name="qiyu-live-gateway" target="17" />
+      <module name="qiyu-live-gift-interface" target="17" />
+      <module name="qiyu-live-gift-provider" target="17" />
+      <module name="qiyu-live-id-generate-interface" target="17" />
+      <module name="qiyu-live-id-generate-provider" target="17" />
+      <module name="qiyu-live-im-consumer" target="17" />
+      <module name="qiyu-live-im-core-server" target="17" />
+      <module name="qiyu-live-im-core-server-interfaces" target="17" />
+      <module name="qiyu-live-im-interface" target="17" />
+      <module name="qiyu-live-im-provider" target="17" />
+      <module name="qiyu-live-im-router-interface" target="17" />
+      <module name="qiyu-live-im-router-provider" target="17" />
+      <module name="qiyu-live-living-interface" target="17" />
+      <module name="qiyu-live-living-provider" target="17" />
+      <module name="qiyu-live-msg-interface" target="17" />
+      <module name="qiyu-live-msg-provider" target="17" />
+      <module name="qiyu-live-sms-interface" target="17" />
+      <module name="qiyu-live-sms-provider" target="17" />
+      <module name="qiyu-live-user-interface" target="17" />
+      <module name="qiyu-live-user-provider" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="afeng-live-account-interface" options="-parameters" />
+      <module name="afeng-live-account-provider" options="-parameters" />
+      <module name="afeng-live-api" options="-parameters" />
+      <module name="afeng-live-bank-api" options="-parameters" />
+      <module name="afeng-live-bank-interface" options="-parameters" />
+      <module name="afeng-live-bank-provider" options="-parameters" />
+      <module name="afeng-live-common-interface" options="-parameters" />
+      <module name="afeng-live-framework" options="" />
+      <module name="afeng-live-framework-datasource-starter" options="-parameters" />
+      <module name="afeng-live-framework-mq-starter" options="-parameters" />
+      <module name="afeng-live-framework-redis-starter" options="-parameters" />
+      <module name="afeng-live-framework-web-starter" options="-parameters" />
+      <module name="afeng-live-gateway" options="-parameters" />
+      <module name="afeng-live-gift-interface" options="-parameters" />
+      <module name="afeng-live-gift-provider" options="-parameters" />
+      <module name="afeng-live-id-generate-interface" options="-parameters" />
+      <module name="afeng-live-id-generate-provider" options="-parameters" />
+      <module name="afeng-live-im-consumer" options="-parameters" />
+      <module name="afeng-live-im-core-server" options="-parameters" />
+      <module name="afeng-live-im-core-server-interfaces" options="-parameters" />
+      <module name="afeng-live-im-interface" options="-parameters" />
+      <module name="afeng-live-im-provider" options="-parameters" />
+      <module name="afeng-live-im-router-interface" options="-parameters" />
+      <module name="afeng-live-im-router-provider" options="-parameters" />
+      <module name="afeng-live-living-interface" options="-parameters" />
+      <module name="afeng-live-living-provider" options="-parameters" />
+      <module name="afeng-live-msg-interface" options="-parameters" />
+      <module name="afeng-live-msg-provider" options="-parameters" />
+      <module name="afeng-live-sms-interface" options="-parameters" />
+      <module name="afeng-live-sms-provider" options="-parameters" />
+      <module name="afeng-live-user-interface" options="-parameters" />
+      <module name="afeng-live-user-provider" options="-parameters" />
+    </option>
+  </component>
+</project>

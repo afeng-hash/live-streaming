@@ -1,0 +1,9 @@
+com.afeng.live.framework.redis.starter.config.RedisConfig
+com.afeng.live.framework.redis.starter.keys.UserProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.MsgProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.AccountProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.ImProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.ImCoreServerProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.LivingProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.GiftProviderCacheKeyBuilder
+com.afeng.live.framework.redis.starter.keys.BankProviderCacheKeyBuilder

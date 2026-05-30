@@ -1,0 +1,32 @@
+package com.afeng.live.im.provider.service.impl;
+
+import com.afeng.live.framework.redis.starter.keys.ImProviderCacheKeyBuilder;
+import com.afeng.live.im.provider.service.ImTokenService;
+import jakarta.annotation.Resource;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
+
+@Service
+public class ImTokenServiceImpl implements ImTokenService {
+
+    @Resource
+    private RedisTemplate<String,Object> redisTemplate;
+    @Resource
+    private ImProviderCacheKeyBuilder cacheKeyBuilder;
+
+    @Override
+    public String createImLoginToken(Long userId,Integer appId) {
+        String token = UUID.randomUUID() + "%" + appId;
+        redisTemplate.opsForValue().set(cacheKeyBuilder.buildImLoginTokenKey(token),userId,5, TimeUnit.MINUTES);
+        return token;
+    }
+
+    @Override
+    public Long getUserIdByToken(String token) {
+        Object userId = redisTemplate.opsForValue().get(cacheKeyBuilder.buildImLoginTokenKey(token));
+        return userId == null ? null : Long.valueOf((Integer) userId);
+    }
+}

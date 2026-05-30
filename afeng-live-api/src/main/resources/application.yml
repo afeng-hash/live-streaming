@@ -1,0 +1,11 @@
+#dubbo:
+#  application:
+#    name: afeng-live-api
+#  registry:
+#    address: nacos://192.168.10.128:8848?namespace=afeng-live-test
+#  protocol:
+#    name: dubbo
+#    port: 9090
+#  consumer:
+#    timeout: 3000
+#    retries: 0

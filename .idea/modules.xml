@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-account-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-account-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-account-provider/qiyu-live-account-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-account-provider/qiyu-live-account-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-api.iml" filepath="$PROJECT_DIR$/qiyu-live-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-bank-api.iml" filepath="$PROJECT_DIR$/qiyu-live-bank-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-bank-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-bank-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-bank-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-bank-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-common-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-common-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-framework.iml" filepath="$PROJECT_DIR$/qiyu-live-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-framework-datasource-starter.iml" filepath="$PROJECT_DIR$/qiyu-live-framework-datasource-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-framework-mq-starter.iml" filepath="$PROJECT_DIR$/qiyu-live-framework-mq-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-framework-redis-starter.iml" filepath="$PROJECT_DIR$/qiyu-live-framework-redis-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-framework-web-starter.iml" filepath="$PROJECT_DIR$/qiyu-live-framework-web-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-gift-interface/qiyu-live-gift-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-gift-interface/qiyu-live-gift-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-gift-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-gift-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-id-generate-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-id-generate-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-id-generate-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-id-generate-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-consumer.iml" filepath="$PROJECT_DIR$/qiyu-live-im-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-core-server.iml" filepath="$PROJECT_DIR$/qiyu-live-im-core-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-core-server-interfaces.iml" filepath="$PROJECT_DIR$/qiyu-live-im-core-server-interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-interface/qiyu-live-im-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-im-interface/qiyu-live-im-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-im-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-router-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-im-router-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-im-router-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-im-router-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-living-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-living-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-living-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-living-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-msg-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-msg-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-msg-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-msg-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-sms-interface.iml" filepath="$PROJECT_DIR$/qiyu-live-sms-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-sms-provider/qiyu-live-sms-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-sms-provider/qiyu-live-sms-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiyu-live-user-provider.iml" filepath="$PROJECT_DIR$/qiyu-live-user-provider.iml" />
+    </modules>
+  </component>
+</project>

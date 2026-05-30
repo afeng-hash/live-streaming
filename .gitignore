@@ -1,0 +1,7 @@
+# 项目排除路径
+/qiyu-live-api/target/
+/qiyu-live-common-interface/target/
+/qiyu-live-framework/qiyu-live-framework-datasource-starter/target/
+/qiyu-live-framework/qiyu-live-framework-redis-starter/target/
+/qiyu-live-user-interface/target/
+/qiyu-live-user-provider/target/

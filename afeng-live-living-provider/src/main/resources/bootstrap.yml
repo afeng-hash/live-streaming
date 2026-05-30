@@ -1,0 +1,17 @@
+spring:
+  main:
+    allow-circular-references: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.10.128:8848
+        namespace: afeng-live-test
+      config:
+        import-check:
+          enabled: false
+        file-extension: yaml
+        server-addr: 192.168.10.128:8848
+        namespace: afeng-live-test
+  config:
+    import:
+      - optional:nacos:afeng-live-living-provider.yaml

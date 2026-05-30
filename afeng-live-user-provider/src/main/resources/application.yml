@@ -1,0 +1,105 @@
+#spring:
+#  # --------------------------------------------------------------------------
+#  # 数据源配置
+#  # 使用 ShardingSphere-JDBC 作为数据源驱动，实现分库分表功能
+#  # --------------------------------------------------------------------------
+#  datasource:
+#    # 驱动类名：使用 ShardingSphere 的专用驱动程序
+#    # 作用：拦截所有 SQL 操作，根据分片规则路由到正确的物理表
+#    # 注意：不再使用 MySQL 原生驱动（com.mysql.cj.jdbc.Driver）
+#    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+#
+#    # JDBC URL：指定 ShardingSphere 配置文件的位置
+#    # classpath: 表示从类路径（resources 目录）加载配置文件
+#    # afeng-db-sharding.yaml：分片规则配置文件名
+#    #
+#    # 工作流程：
+#    # 1. ShardingSphere 驱动读取此配置文件
+#    # 2. 解析其中的数据源、分片规则
+#    # 3. 根据规则将逻辑 SQL 转换为物理 SQL
+#    url: jdbc:shardingsphere:classpath:afeng-db-sharding.yaml
+#
+#    # ----------------------------------------------------------------------
+#    # HikariCP 连接池配置
+#    # ShardingSphere 底层仍然使用 HikariCP 管理数据库连接
+#    # ----------------------------------------------------------------------
+#    hikari:
+#      # 连接池名称：用于监控和日志标识
+#      # 在日志、JMX 监控中会显示此名称，便于识别
+#      pool-name: afeng-user-pool
+#
+#      # 最小空闲连接数：连接池维持的最小连接数量
+#      # - 即使没有请求，也会保持 150 个连接 ready
+#      # - 避免频繁创建/销毁连接的开销
+#      # - 适合高并发场景，但会占用较多数据库资源
+#      # - 调优建议：根据实际并发量调整，公式：CPU核心数 * 2 + 磁盘数
+#      minimum-idle: 150
+#
+#      # 最大连接池大小：连接池允许的最大连接数
+#      # - 限制同时存在的最大连接数，防止资源耗尽
+#      # - 设置为 300，支持较高的并发访问
+#      # - 警告：如果设置过大，可能导致数据库连接数超限
+#      # - 调优建议：需要与数据库的 max_connections 参数配合
+#      maximum-pool-size: 300
+#
+#      # 连接初始化 SQL：新连接创建时执行的 SQL 语句
+#      # - select 1 是最轻量的测试语句
+#      # - 用于验证连接是否有效
+#      # - 确保新创建的连接可以正常工作
+##      connection-init-sql: select 1
+#
+#      # 连接超时时间：获取连接的最大等待时间（单位：毫秒）
+#      # - 如果在 4 秒内无法获取到可用连接，抛出异常
+#      # - 较短的超时时间可以快速失败，避免请求长时间阻塞
+#      # - 调优建议：
+#      #   - 开发环境：可以设置较短（如 3000-5000ms）
+#      #   - 生产环境：根据业务容忍度设置（如 5000-30000ms）
+#      connection-timeout: 5000
+#
+#      # 连接最大生命周期：连接在池中的最长存活时间（单位：毫秒）
+#      # - 60000ms = 60 秒 = 1 分钟
+#      # - 超过此时间的连接会被强制关闭并重新创建
+#      # - 目的：
+#      #   1. 避免长期使用同一连接导致的问题（如内存泄漏）
+#      #   2. 定期刷新连接，确保连接质量
+#      #   3. 配合数据库的连接超时设置
+#      #
+#      # 重要约束：
+#      # - 必须小于数据库服务器的 wait_timeout 参数
+#      # - 建议设置为：数据库 wait_timeout - 30秒
+#      # - 当前设置 60 秒相对较短，适合快速发现连接问题
+#      # - 生产环境可以适当延长（如 1800000ms = 30分钟）
+#      max-lifetime: 60000
+#
+#  data:
+#    redis:
+#      port: 6379
+#      host: 192.168.10.128
+#      lettuce:
+#        pool:
+#          min-idle: 10
+#          max-idle: 20
+#          max-active: 50
+#
+#dubbo:
+#  application:
+#    name: afeng-live-user-provider
+#  registry:
+#    address: nacos://192.168.10.128:8848?namespace=afeng-live-test
+#  protocol:
+#    name: dubbo
+#    port: 9090
+#  consumer:
+#    timeout: 3000
+#    retries: 0
+#
+#rocketmq:
+#  rmq:
+#    producer:
+#      nameSrv: 192.168.10.128:9876
+#      groupName: ${spring.application.name}
+#      retryTimes: 3
+#      sendTimeout: 3000
+#    consumer:
+#      nameSrv: 192.168.10.128:9876
+#      groupName: ${spring.application.name}

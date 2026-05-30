@@ -1,0 +1,164 @@
+## 架构说明：
+## - 主库（user_master）：处理所有写操作（INSERT、UPDATE、DELETE）
+## - 从库（user_slave0）：处理所有读操作（SELECT）
+## - 分表策略：t_user 表按 user_id 取模分成 100 张物理表（t_user_00 ~ t_user_99）
+#
+## 数据源配置区域
+## 定义主库和从库的物理连接信息
+## ----------------------------------------------------------------------------
+#dataSources:
+#  # --------------------------------------------------------------------------
+#  # 主数据源（写库）
+#  # 负责处理所有的写操作（INSERT、UPDATE、DELETE）
+#  # --------------------------------------------------------------------------
+#  user_master:
+#    # 数据源类名：使用 HikariCP 高性能连接池
+#    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+#
+#    # JDBC 驱动类名：MySQL 8.x 版本的驱动程序
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#    # 主库 JDBC 连接 URL：
+#    jdbcUrl: jdbc:mysql://192.168.10.128:8808/afeng_live_user?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: root
+#
+#
+#  # --------------------------------------------------------------------------
+#  # 从数据源0（读库）
+#  # 负责处理所有的读操作（SELECT），实现读写分离
+#  # --------------------------------------------------------------------------
+#  user_slave0:
+#    # 数据源类名：使用 HikariCP 高性能连接池
+#    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+#
+#    # JDBC 驱动类名：MySQL 8.x 版本的驱动程序
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#    # 从库 JDBC 连接 URL：
+#    jdbcUrl: jdbc:mysql://192.168.10.128:8809/afeng_live_user?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: root
+#
+#
+## ----------------------------------------------------------------------------
+## 规则配置区域
+## 定义读写分离、单表、分片等规则
+## ----------------------------------------------------------------------------
+#rules:
+#  # --------------------------------------------------------------------------
+#  # 读写分离规则（READWRITE_SPLITTING）
+#  # 自动将读请求路由到从库，写请求路由到主库
+#  # --------------------------------------------------------------------------
+#  - !READWRITE_SPLITTING
+#    # 逻辑数据源配置
+#    dataSources:
+#      # 逻辑数据源名称：user_ds
+#      # 应用程序中使用此名称，ShardingSphere 会自动根据 SQL 类型路由
+#      user_ds:
+#        # 静态策略：固定指定主库和从库
+#        staticStrategy:
+#          # 写数据源名称：指向 user_master（主库）
+#          # 所有 INSERT、UPDATE、DELETE 操作都会路由到这里
+#          writeDataSourceName: user_master
+#
+#          # 读数据源名称列表：指向 user_slave0（从库）
+#          # 所有 SELECT 操作都会路由到这里
+#          # 可以配置多个从库实现负载均衡，当前只配置了一个
+#          readDataSourceNames:
+#            - user_slave0
+#
+#  # --------------------------------------------------------------------------
+#  # 单表规则（SINGLE）
+#  # 指定不分库不分表的默认数据源
+#  # --------------------------------------------------------------------------
+#  - !SINGLE
+#    # 默认数据源：user_ds（读写分离逻辑数据源）
+#    # 所有未配置分片规则的表都使用这个逻辑数据源
+#    # 会自动应用读写分离策略
+#    defaultDataSource: user_ds
+#
+#  # --------------------------------------------------------------------------
+#  # 分片规则（SHARDING）
+#  # 配置具体的分表策略
+#  # --------------------------------------------------------------------------
+#  - !SHARDING
+#    # 分片表配置：定义哪些表需要分片，以及如何分片
+#    tables:
+#      # 逻辑表名：t_user（代码中使用的表名）
+#      t_user:
+#        # 实际数据节点：定义物理表的分布
+#        # 格式：逻辑数据源名称.物理表名
+#        #
+#        # 表达式解释：
+#        # - user_ds：使用读写分离逻辑数据源
+#        # - (0..99).collect(){it.toString().padLeft(2,'0')}：生成 00-99 的字符串列表
+#        # - 最终展开为：user_ds.t_user_00, user_ds.t_user_01, ..., user_ds.t_user_99
+#        # - 共 100 张物理表，分布在读写分离的数据源中
+#        actualDataNodes: user_ds.t_user_${(0..99).collect(){it.toString().padLeft(2,'0')}}
+#
+#        # 表分片策略配置
+#        tableStrategy:
+#          # 标准分片策略：基于单个分片键的分片
+#          standard:
+#            # 分片列：根据哪个字段进行分片
+#            # 这里使用 user_id 作为分片键
+#            shardingColumn: user_id
+#
+#            # 分片算法名称：引用下方 shardingAlgorithms 中定义的算法
+#            shardingAlgorithmName: t_user-inline
+#      t_user_tag:
+#        actualDataNodes: user_ds.t_user_tag_${(0..99).collect(){it.toString().padLeft(2,'0')}}
+#        tableStrategy:
+#          # 标准分片策略：基于单个分片键的分片
+#          standard:
+#            # 分片列：根据哪个字段进行分片
+#            # 这里使用 user_id 作为分片键
+#            shardingColumn: user_id
+#            # 分片算法名称：引用下方 shardingAlgorithms 中定义的算法
+#            shardingAlgorithmName: t_user_tag-inline
+#
+#    # 分片算法配置：定义具体的分片计算逻辑
+#    shardingAlgorithms:
+#      # 算法名称：t_user-inline（与上方 shardingAlgorithmName 对应）
+#      t_user-inline:
+#        # 算法类型：INLINE（行表达式分片算法）
+#        # 使用 Groovy 表达式进行分片计算，简单高效
+#        type: INLINE
+#
+#        # 算法属性配置
+#        props:
+#          # 分片表达式：计算数据应该路由到哪张物理表
+#          #
+#          # 表达式解释：
+#          # - user_id % 100：对 user_id 取模，结果范围 0-99
+#          # - .toString().padLeft(2,'0')：转换为字符串并补齐两位（如 5 -> "05"）
+#          # - 最终表名：t_user_00, t_user_01, ..., t_user_99
+#          #
+#          # 示例：
+#          # - user_id = 12345 → 12345 % 100 = 45 → t_user_45
+#          # - user_id = 8 → 8 % 100 = 8 → t_user_08
+#          # - user_id = 100 → 100 % 100 = 0 → t_user_00
+#          algorithm-expression: t_user_${(user_id %100).toString().padLeft(2,'0')}
+#      t_user_tag-inline:
+#        type: INLINE
+#        props:
+#          algorithm-expression: t_user_tag_${(user_id %100).toString().padLeft(2,'0')}
+#
+#
+## ----------------------------------------------------------------------------
+## 全局属性配置
+## ----------------------------------------------------------------------------
+#props:
+#  # SQL 展示开关：是否在日志中打印解析后的真实 SQL
+#  # true：会在日志中显示实际执行的物理 SQL（包括真实的表名和数据源）
+#  # false：只显示逻辑 SQL（使用逻辑表名）
+#  #
+#  # 示例输出（sql-show: true）：
+#  # Logic SQL: SELECT * FROM t_user WHERE user_id = ?
+#  # Actual SQL: user_slave0 ::: SELECT * FROM t_user_45 WHERE user_id = ?
+#  #
+#  # 建议：
+#  # - 开发环境：开启（true），便于调试和排查问题
+#  # - 生产环境：关闭（false），减少日志输出，提升性能
+#  sql-show: true

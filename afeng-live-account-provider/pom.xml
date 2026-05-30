@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.afeng</groupId>
+        <artifactId>afeng-live-app</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>afeng-live-account-provider</artifactId>
+
+    <properties>
+        <afeng-live-redis-starter.version>1.0-SNAPSHOT</afeng-live-redis-starter.version>
+        <afeng-live-account-interface.version>1.0-SNAPSHOT</afeng-live-account-interface.version>
+        <afeng-live-common-interface.version>1.0-SNAPSHOT</afeng-live-common-interface.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.afeng</groupId>
+            <artifactId>afeng-live-account-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.afeng</groupId>
+            <artifactId>afeng-live-common-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.afeng</groupId>
+            <artifactId>afeng-live-framework-redis-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>${spring-cloud-boostrap.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

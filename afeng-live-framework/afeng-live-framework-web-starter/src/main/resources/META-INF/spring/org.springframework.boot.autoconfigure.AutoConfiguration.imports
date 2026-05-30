@@ -1,0 +1,2 @@
+com.afeng.live.web.starter.config.WebConfig
+com.afeng.live.web.starter.error.GlobalExceptionHandler
